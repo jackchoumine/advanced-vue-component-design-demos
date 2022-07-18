@@ -183,7 +183,7 @@ v-model 指令的原理：modelValue 绑定到 value 上和在 input 事件中�
 
 告诉屏幕阅读器，元素选中状态。ARIA (Accessible Rich Internet Applications) 是一组属性，用于定义使残障人士更容易访问 Web 内容和 Web 应用程序。
 
-role aria-\* 都是为了实现无障碍访问添加的属性
+role、aria-\* 都是为了实现无障碍访问添加的属性
 
 实现的关键点：
 
