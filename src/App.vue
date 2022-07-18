@@ -9,6 +9,12 @@
   <div>
     <p>自定义 toggle 组件</p>
     <ToggleInput v-model="toggled" />
+    <a
+      href="https://github.com/jackchoumine/advanced-vue-component-design-demos/blob/master/src/components/controlled-component/ToggleInput.vue"
+      target="_blank"
+    >
+      github 代码
+    </a>
   </div>
 
   <!-- <h2>使用第三方库封装组件</h2> -->
@@ -16,6 +22,12 @@
   <div>
     <h2>render-props</h2>
     <FormTable title="使用例子" :data="data" :titleList="titleList" />
+    <a
+      href="https://github.com/jackchoumine/advanced-vue-component-design-demos/blob/master/src/components/render-prop/FormTable.vue"
+      target="_blank"
+    >
+      github 代码
+    </a>
   </div>
   <div>
     <h2>render 实现共享逻辑</h2>
@@ -42,6 +54,12 @@
         </div>
       </template>
     </FetchData>
+    <a
+      href="https://github.com/jackchoumine/advanced-vue-component-design-demos/blob/master/src/components/render-prop/OnClickOutside.vue"
+      target="_blank"
+    >
+      github 代码
+    </a>
   </div>
 </template>
 
