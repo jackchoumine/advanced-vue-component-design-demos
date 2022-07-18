@@ -1,14 +1,8 @@
-# advanced-vue-component-design --- vue 高级组件设计
+# advanced-vue-component-design 之受控组件
 
 总结实用（项目里能马上用到的）的 vue 组件设计方法，让封装组件更加容易，代码更加好维护。
 
 > [demos 预览](https://jackchoumine.github.io/advanced-vue-component-design-demos/)
-
-## 几个应该遵循的设计原则
-
-1. 数据驱动模板
-
-2.
 
 ## 受控组件 controlled component
 
@@ -67,7 +61,7 @@ v-model 指令的原理：modelValue 绑定到 value 上和在 input 事件中�
 
 默认情况下，v-model 不需要指定参数，修改 prop 的名字后，需要指定参数，比如上面的`v-mode:title`。vue3 加强了 v-model，可实现传递多个值，比如上面的 `<MyInput v-model="myInput" v-model:title="title" />`。
 
-> 如何使用受控组件实现一个类似微信的 switch 组件？
+## 如何使用受控组件实现一个类似微信的 switch 组件？
 
 ![](https://tva1.sinaimg.cn/large/e6c9d24egy1h4b8zda7bhj203y02iwea.jpg)
 
@@ -190,3 +184,80 @@ role、aria-\* 都是为了实现无障碍访问添加的属性
 1. 使用绝对定位放置圆形按钮，且使用伪元素。
 
 2. 当状态改变时，移动元素按钮，同时改变组件的背景色。
+
+## 再思考 v-model 的使用
+
+在原生标签上
+
+```html
+<input v-model="inputValue" />
+<!-- 等价于 -->
+<input :value="inputValue" @input="inputValue=$event.target.value" />
+```
+
+自定义在组件上
+
+```html
+<custom-input :model-value="searchText" @update:model-value="searchText = $event"></custom-input>
+```
+
+组件实现`v-model`：声明`model-value`的 prop, 将该 prop 绑定到 value 上，在 value 改变时，通过自定义事件 `update:modelValue` 把最新的值抛出。
+
+```js
+app.component('custom-input', {
+  props: ['modelValue'],
+  emits: ['update:modelValue'],
+  template: `
+    <input
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+    >
+  `,
+})
+```
+
+v-model 在自定义组件上使用：
+
+```html
+<custom-input v-model="searchText"></custom-input>
+```
+
+## v-model 如何是计算属性结合使用？
+
+> [!IMPORTANT]
+> 在 set 中触发自定义事件。
+
+```js
+app.component('custom-input', {
+  props: ['modelValue'],
+  emits: ['update:modelValue'],
+  template: `
+    <input v-model="value">
+  `,
+  computed: {
+    value: {
+      get() {
+        return this.modelValue
+      },
+      set(value) {
+        this.$emit('update:modelValue', value)
+      },
+    },
+  },
+})
+```
+
+> [!TIP]
+
+> 这种实现在二次封装表单组件时，特别有用。
+
+> 什么时候使用`modelValue`+`update:modelValue`代替 v-model?
+
+组件在循环中时，比如下面的例子。
+
+```html
+<div v-for="item in metricList" :key="item.id">
+  <!-- NOTE 使用 v-model 报错 -->
+  <MetricOperate :model-value="item" @update:model-value="onUpdateModelValue" />
+</div>
+```
