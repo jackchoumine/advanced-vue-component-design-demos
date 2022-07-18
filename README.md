@@ -224,7 +224,6 @@ v-model 在自定义组件上使用：
 
 ## v-model 如何是计算属性结合使用？
 
-> [!IMPORTANT]
 > 在 set 中触发自定义事件。
 
 ```js
@@ -246,8 +245,6 @@ app.component('custom-input', {
   },
 })
 ```
-
-> [!TIP]
 
 > 这种实现在二次封装表单组件时，特别有用。
 
