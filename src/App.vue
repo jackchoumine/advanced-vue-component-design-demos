@@ -17,19 +17,31 @@
     <h2>render-props</h2>
     <FormTable title="使用例子" :data="data" :titleList="titleList" />
   </div>
+  <div>
+    <h2>render 实现共享逻辑</h2>
+    <OnClickOutside :clickOutside="clickOutside">
+      <div style="background-color: #ccc">
+        <div>子组件</div>
+        <p>hello</p>
+        <p>点击外部</p>
+      </div>
+    </OnClickOutside>
+  </div>
 </template>
 
 <script setup lang="jsx">
+import { ref } from 'vue'
 import { ToggleInput, MyInput } from './components/controlled-component'
 import { DatePicker } from './components/third-lib'
-import { FormTable } from './components/render-prop'
-import { ref } from 'vue'
+import { FormTable, OnClickOutside } from './components/render-prop'
 
 const myInput = ref('我的输入')
 const title = ref('title')
 const toggled = ref(false)
 const date = ref('2022-07-18')
-
+function clickOutside(ele) {
+  console.log(ele)
+}
 const img = 'https://tva1.sinaimg.cn/large/008i3skNgy1gu9gco1hdbj605k05kgll02.jpg'
 
 const data = ref({
