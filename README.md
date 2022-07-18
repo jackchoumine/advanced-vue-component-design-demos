@@ -2,6 +2,8 @@
 
 总结实用（项目里能马上用到的）的 vue 组件设计方法，让封装组件更加容易，代码更加好维护。
 
+> [demos 预览](https://jackchoumine.github.io/advanced-vue-component-design-demos/)
+
 ## 几个应该遵循的设计原则
 
 1. 数据驱动模板
