@@ -26,6 +26,13 @@
         <p>点击外部</p>
       </div>
     </OnClickOutside>
+
+    <hr />
+    <FetchData>
+      <template #left="{ name }">left,{{ name }}</template>
+      <p>world</p>
+      <template #right>right</template>
+    </FetchData>
   </div>
 </template>
 
@@ -33,7 +40,7 @@
 import { ref } from 'vue'
 import { ToggleInput, MyInput } from './components/controlled-component'
 import { DatePicker } from './components/third-lib'
-import { FormTable, OnClickOutside } from './components/render-prop'
+import { FormTable, OnClickOutside, FetchData } from './components/render-prop'
 
 const myInput = ref('我的输入')
 const title = ref('title')
