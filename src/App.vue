@@ -1,13 +1,22 @@
 <template>
   <h1>vue组件设计方法</h1>
-  <h2>受控组件</h2>
-  <MyInput v-model="myInput" v-model:title="title" />
-  <p>自定义 toggle 组件</p>
-  <ToggleInput v-model="toggled" />
+
+  <div>
+    <h2>受控组件</h2>
+    <MyInput v-model="myInput" v-model:title="title" />
+  </div>
+
+  <div>
+    <p>自定义 toggle 组件</p>
+    <ToggleInput v-model="toggled" />
+  </div>
+
   <!-- <h2>使用第三方库封装组件</h2> -->
   <!-- <DatePicker v-model="date" /> -->
-  <h2>render-props</h2>
-  <FormTable title="使用例子" :data="data" :titleList="titleList" />
+  <div>
+    <h2>render-props</h2>
+    <FormTable title="使用例子" :data="data" :titleList="titleList" />
+  </div>
 </template>
 
 <script setup lang="jsx">
