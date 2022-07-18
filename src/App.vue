@@ -28,10 +28,19 @@
     </OnClickOutside>
 
     <hr />
-    <FetchData>
-      <template #left="{ name }">left,{{ name }}</template>
-      <p>world</p>
-      <template #right>right</template>
+    <FetchData url="https://api.github.com/users/jackchoumine">
+      <template #default="{ userInfo, loading }">
+        <p v-if="loading">正在加载...</p>
+        <p v-else-if="userInfo.avatar_url">
+          <img :src="userInfo.avatar_url" />
+        </p>
+        <div v-else>
+          <h3>error</h3>
+          <p>
+            {{ userInfo.message }}
+          </p>
+        </div>
+      </template>
     </FetchData>
   </div>
 </template>
