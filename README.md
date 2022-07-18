@@ -65,7 +65,7 @@ v-model 指令的原理：modelValue 绑定到 value 上和在 input 事件中�
 
 `v-model:propName + update:propName`
 
-默认情况下，v-model 不需要指定参数，修改 prop 的名字后，需要指定参数，比如上面的`v-mode:title`。
+默认情况下，v-model 不需要指定参数，修改 prop 的名字后，需要指定参数，比如上面的`v-mode:title`。vue3 加强了 v-model，可实现传递多个值，比如上面的 `<MyInput v-model="myInput" v-model:title="title" />`。
 
 > 如何使用受控组件实现一个类似微信的 switch 组件？
 
