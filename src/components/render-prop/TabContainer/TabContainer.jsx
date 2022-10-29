@@ -33,6 +33,14 @@ const TabContainer = {
   // },
   render() {
     const slots = this.$slots.default()
+    // NOTE 如何限制子组件类型?
+    // 检查子组件类型
+    const existNonValidSubCom = slots.some(slot => ![TabHeader, TabContent].includes(slot.type))
+    if (existNonValidSubCom) {
+      const message = 'TabContainer的子组件必须是 TabHeader 和 TabContent'
+      // throw new Error(message)
+      return h('div', message)
+    }
     const Tabs = slots
       .filter(item => item.type === TabHeader)
       .map(Tab =>
