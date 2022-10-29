@@ -1,0 +1,11 @@
+.tab-container {
+  display: flex;
+  justify-content: space-evenly;
+  .tab {
+    width: 100%;
+    border: 1px solid #eee;
+  }
+  .active {
+    background-color: #ccc;
+  }
+}

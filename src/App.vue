@@ -5,6 +5,7 @@
   <RenderPropDemo />
   <!-- <h2>使用第三方库封装组件</h2> -->
   <!-- <DatePicker v-model="date" /> -->
+  <ElEmpty description="占据空位" />
 </template>
 
 <script setup name="App">
