@@ -28,7 +28,7 @@
     </a>
     <ElDivider />
     <h4>renderLess 封装请求方法，实现 FetchData 组件</h4>
-    <!-- <FetchData url="https://api.github.com/users/jackchoumine">
+    <FetchData url="https://api.github.com/users/jackchoumine">
       <template #default="{ userInfo, loading }">
         <p v-if="loading">正在加载...</p>
         <p v-else-if="userInfo.avatar_url">
@@ -41,7 +41,7 @@
           </p>
         </div>
       </template>
-    </FetchData> -->
+    </FetchData>
     <a
       href="https://github.com/jackchoumine/advanced-vue-component-design-demos/blob/master/src/components/render-prop/FetchData.jsx"
       target="_blank"
