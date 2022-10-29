@@ -10,31 +10,46 @@ const TabContainer = {
       required: true,
     },
   },
+  // BUG 不会重新执行
+  // setup(props, { emit, slots }) {
+  //   const defaultSlots = slots.default()
+  //   const Tabs = defaultSlots
+  //     .filter(slot => slot.type === TabHeader)
+  //     .map(Tab =>
+  //       h(Tab, {
+  //         class: {
+  //           tab: true,
+  //           active: Tab.props['tab-id'] === props.modelValue,
+  //         },
+  //         onClick: () => {
+  //           emit('update:modelValue', Tab.props['tab-id'])
+  //         },
+  //       }),
+  //     )
+  //   const Content = defaultSlots.find(
+  //     slot => slot.type === TabContent && slot.props['tab-id'] === props.modelValue,
+  //   )
+  //   return () => [h(() => h('div', { class: 'tab-container' }, Tabs)), h(() => h('div', Content))]
+  // },
   render() {
-    const propObj = {
-      class: 'tab-container',
-    }
-    const _slots = this.$slots.default()
-
-    const tabs = _slots
+    const slots = this.$slots.default()
+    const Tabs = slots
       .filter(item => item.type === TabHeader)
-      .map(tab =>
-        h(tab, {
+      .map(Tab =>
+        h(Tab, {
           class: {
             tab: true,
-            active: tab.props['tab-id'] === this.modelValue,
+            active: Tab.props['tab-id'] === this.modelValue,
           },
           onClick: () => {
-            this.$emit('update:modelValue', tab.props['tab-id'])
+            this.$emit('update:modelValue', Tab.props['tab-id'])
           },
         }),
       )
-
-    const content = _slots.find(
+    const content = slots.find(
       slot => slot.type === TabContent && slot.props['tab-id'] === this.modelValue,
     )
-
-    return [h('div', propObj, tabs), h('div', content)]
+    return [h('div', { class: 'tab-container' }, Tabs), h('div', content)]
   },
 }
 
