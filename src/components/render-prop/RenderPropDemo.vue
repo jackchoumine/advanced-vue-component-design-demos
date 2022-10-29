@@ -27,7 +27,7 @@
       github 代码
     </a>
     <ElDivider />
-    <h4>renderLess 实现封装请求方法</h4>
+    <h4>renderLess 封装请求方法，实现 FetchData 组件</h4>
     <FetchData url="https://api.github.com/users/jackchoumine">
       <template #default="{ userInfo, loading }">
         <p v-if="loading">正在加载...</p>
