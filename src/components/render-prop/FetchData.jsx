@@ -22,9 +22,10 @@ export const FetchData = defineComponent({
       fetch(props.url)
         .then(res => res.json())
         .then(data => {
-          console.log(data)
           userInfo.value = data
-          loading.value = false
+          setTimeout(() => {
+            loading.value = false
+          }, 1500)
         })
     })
     return () => slots.default({ userInfo: userInfo.value, loading: loading.value })

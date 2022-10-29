@@ -8,3 +8,4 @@
 export { default as FormTable } from './FormTable.vue'
 export { default as OnClickOutside } from './OnClickOutside.vue'
 export { FetchData } from './FetchData.jsx'
+export { default as RenderPropDemo } from './RenderPropDemo.vue'

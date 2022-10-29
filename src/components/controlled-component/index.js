@@ -7,3 +7,4 @@
  */
 export { default as ToggleInput } from './ToggleInput.vue'
 export { default as MyInput } from './MyInput.vue'
+export { default as ControlledComponentDemo } from './ControlledComponentDemo.vue'
