@@ -1,4 +1,4 @@
-const img = 'https://tva1.sinaimg.cn/large/008i3skNgy1gu9gco1hdbj605k05kgll02.jpg'
+const img = 'https://jsd.cdn.zzko.cn/gh/jackchoumine/jack-picture@master/008i3skNgy1gu9gco1hdbj605k05kgll02.webp'
 export const data = {
   name: 'LiHei',
   image: img,
